@@ -1,82 +1,115 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Learning a Decentralized Multi-arm Motion Planner</title>
-		<meta charset="utf-8" />
-		 <meta name="viewport" content="width=1000">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		 <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-          ga('create', 'UA-89797207-1', 'auto');
-          ga('send', 'pageview');
-        </script>
 
-        <meta property="og:url"           content="https://graspinwild.cs.columbia.edu/" />
-	    <meta property="og:type"          content="website" />
-	    <meta property="og:title"         content="Learning a Decentralized Multi-arm Motion Planner" />
-	    <meta property="og:description"   content="We present a closed-loop multi-arm motion planner that is scalable and flexible with team size. Traditional multi-arm robot systems have relied on centralized motion planners, whose runtimes often scale exponentially with team size, and thus, fail to handle dynamic environments with open-loop control. In this paper, we tackle this problem with multi-agent reinforcement learning, where a decentralized policy is trained to control one robot arm in the multi-arm system to reach its target end-effector pose given observations of its workspace state and target end-effector pose. The policy is trained using Soft Actor-Critic with expert demonstrations from a sampling-based motion planning algorithm (i.e., BiRRT). By leveraging classical planning algorithms, we can improve the learning efficiency of the reinforcement learning algorithm while retaining the fast inference time of neural networks. The resulting policy scales sub-linearly and can be deployed on multi-arm systems with variable team sizes. Thanks to the closed-loop and decentralized formulation, our approach generalizes to 5-10 multi-arm systems and dynamic moving targets (>90% success rate for a 10-arm system), despite being trained on only 1-4 arm planning tasks with static targets." />
-	    
+<head>
+	<title>Learning a Decentralized Multi-arm Motion Planner</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1000">
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script>
+		(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-89797207-1', 'auto');
+		ga('send', 'pageview');
+	</script>
 
-	</head>
-	<body id="top">
+	<meta property="og:url" content="https://graspinwild.cs.columbia.edu/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Learning a Decentralized Multi-arm Motion Planner" />
+	<meta property="og:description"
+		content="We present a closed-loop multi-arm motion planner that is scalable and flexible with team size. Traditional multi-arm robot systems have relied on centralized motion planners, whose runtimes often scale exponentially with team size, and thus, fail to handle dynamic environments with open-loop control. In this paper, we tackle this problem with multi-agent reinforcement learning, where a decentralized policy is trained to control one robot arm in the multi-arm system to reach its target end-effector pose given observations of its workspace state and target end-effector pose. The policy is trained using Soft Actor-Critic with expert demonstrations from a sampling-based motion planning algorithm (i.e., BiRRT). By leveraging classical planning algorithms, we can improve the learning efficiency of the reinforcement learning algorithm while retaining the fast inference time of neural networks. The resulting policy scales sub-linearly and can be deployed on multi-arm systems with variable team sizes. Thanks to the closed-loop and decentralized formulation, our approach generalizes to 5-10 multi-arm systems and dynamic moving targets (>90% success rate for a 10-arm system), despite being trained on only 1-4 arm planning tasks with static targets." />
 
 
-		<!-- Main -->
-			<div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
-					<section id="four">
+</head>
 
-						<h1 style="text-align: center; margin-bottom: 2;"><font color="4e79a7">Learning a Decentralized Multi-arm Motion Planner</font> </h1>
+<body id="top">
 
-						<span class="image right" style="max-width: 55%; margin-top: 0.5em; margin-bottom: 0; border: 2px solid #415161;">
-							<img src="images/teaser.png" alt="" />
-						</span>
 
-						<p> We present a closed-loop multi-arm motion planner that is scalable and flexible with team size. Traditional multi-arm robot systems have relied on centralized motion planners, whose runtimes often scale exponentially with team size, and thus, fail to handle dynamic environments with open-loop control. In this paper, we tackle this problem with multi-agent reinforcement learning, where a decentralized policy is trained to control one robot arm in the multi-arm system to reach its target end-effector pose given observations of its workspace state and target end-effector pose. The policy is trained using Soft Actor-Critic with expert demonstrations from a sampling-based motion planning algorithm (i.e., BiRRT). By leveraging classical planning algorithms, we can improve the learning efficiency of the reinforcement learning algorithm while retaining the fast inference time of neural networks. The resulting policy scales sub-linearly and can be deployed on multi-arm systems with variable team sizes. Thanks to the closed-loop and decentralized formulation, our approach generalizes to 5-10 multi-arm systems and dynamic moving targets (>90% success rate for a 10-arm system), despite being trained on only 1-4 arm planning tasks with static targets.
-						</p>
+	<!-- Main -->
+	<div id="main"
+		style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
+		<section id="four">
 
-						<hr style="margin-top: 0em;">
-						<h3>Paper</h3>
+			<h1 style="text-align: center; margin-bottom: 2;">
+				<font color="4e79a7">Learning a Decentralized Multi-arm Motion Planner</font>
+			</h1>
 
-						<!-- <hr/> -->
-						<p style="margin-bottom: 1em;">Latest version: <a href="http://arxiv.org/abs/1912.04344">arXiv</a> or <a href="paper.pdf">here</a></p>
+			<span class="image right"
+				style="max-width: 55%; margin-top: 0.5em; margin-bottom: 0; border: 2px solid #415161;">
+				<img src="images/teaser.gif" alt="" />
+			</span>
 
-						<div class="12u$"><a href="https://arxiv.org/pdf/1912.04344.pdf"><span class="image fit" style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.jpg" alt="" /></span></a></div>
+			<p> We present a closed-loop multi-arm motion planner that is scalable and flexible with team size.
+				Traditional multi-arm robot systems have relied on centralized motion planners, whose runtimes often
+				scale exponentially with team size, and thus, fail to handle dynamic environments with open-loop
+				control. In this paper, we tackle this problem with multi-agent reinforcement learning, where a
+				decentralized policy is trained to control one robot arm in the multi-arm system to reach its target
+				end-effector pose given observations of its workspace state and target end-effector pose. The policy is
+				trained using Soft Actor-Critic with expert demonstrations from a sampling-based motion planning
+				algorithm (i.e., BiRRT). By leveraging classical planning algorithms, we can improve the learning
+				efficiency of the reinforcement learning algorithm while retaining the fast inference time of neural
+				networks. The resulting policy scales sub-linearly and can be deployed on multi-arm systems with
+				variable team sizes. Thanks to the closed-loop and decentralized formulation, our approach generalizes
+				to 5-10 multi-arm systems and dynamic moving targets (>90% success rate for a 10-arm system), despite
+				being trained on only 1-4 arm planning tasks with static targets.
+			</p>
 
-						<!-- <p style="margin-bottom: 1em;">CAD Models for the 3D printed parts can be found: <a href="CAD_gripper.zip">here</a></p> -->
+			<hr style="margin-top: 0em;">
+			<h3>Paper</h3>
 
-						<hr>
-						<h3>Team</h3>
+			<!-- <hr/> -->
+			<p style="margin-bottom: 1em;">Latest version: <a href="http://arxiv.org/abs/1912.04344">arXiv</a> or <a
+					href="paper.pdf">here</a></p>
 
-						<section>
-							<div class="box alt" style="margin-bottom: 1em;">
-								<div class="row 50% uniform" style="width: 90%;">
-									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://haquochuy.com"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/huy-thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Huy Ha <sup>1</sup></a></div>
+			<div class="12u$"><a href="paper.pdf"><span class="image fit"
+						style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.png"
+							alt="" /></span></a></div>
 
-									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://jxu.ai"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/jingxi-thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Jingxi Xu <sup>1</sup></a></div>
-									
-									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://www.cs.columbia.edu/~shurans/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/shuran-thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Shuran Song <sup>1</sup></a></div>
-																		
-								</div>
-							</div>
-						</section>
-						<sup>1</sup> Columbia University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<div class="row" style="margin-top: 1em">
-							<div class="12u$ 12u$(xsmall)">
-							<h3>Bibtex</h3>
-								<pre><code>@inproceedings{ha2020multiarm,
+			<!-- <p style="margin-bottom: 1em;">CAD Models for the 3D printed parts can be found: <a href="CAD_gripper.zip">here</a></p> -->
+
+			<hr>
+			<h3>Team</h3>
+
+			<section>
+				<div class="box alt" style="margin-bottom: 1em;">
+					<div class="row 50% uniform" style="width: 90%;">
+						<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a
+								href="https://haquochuy.com"><span class="image fit" style="margin-bottom: 0.5em;"><img
+										src="images/huy-thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Huy
+								Ha <sup>1</sup></a></div>
+
+						<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a
+								href="https://jxu.ai"><span class="image fit" style="margin-bottom: 0.5em;"><img
+										src="images/jingxi-thumbnail.jpg" alt=""
+										style="border-radius: 50%;" /></span>Jingxi Xu <sup>1</sup></a></div>
+
+						<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a
+								href="https://www.cs.columbia.edu/~shurans/"><span class="image fit"
+									style="margin-bottom: 0.5em;"><img src="images/shuran-thumbnail.jpg" alt=""
+										style="border-radius: 50%;" /></span>Shuran Song <sup>1</sup></a></div>
+
+					</div>
+				</div>
+			</section>
+			<sup>1</sup> Columbia University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="row" style="margin-top: 1em">
+				<div class="12u$ 12u$(xsmall)">
+					<h3>Bibtex</h3>
+					<pre><code>@inproceedings{ha2020multiarm,
 	title={Learning a Decentralized Multi-arm Motion Planner},
 	author={Ha, Huy and Xu, Jingxi and Song, Shuran},
 	booktitle={Conference on Robotic Learning (CoRL)},
 	year={2020}
 }</code>
-							</pre>
-							</div>
-						</div>
-						<hr/ style="margin-top: 1em">
-						<!-- <div class="row">
+					</pre>
+				</div>
+			</div>
+			<hr / style="margin-top: 1em">
+			<!-- <div class="row">
 							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
 		                    <video width="640"  playsinline="" muted="" autoplay="" loop="" >
 		                        <source src="images/videos/data_video_combined2.mp4" type="video/mp4">
@@ -84,39 +117,45 @@
 	                		</div >
 						</div> -->
 
-						<div class="row">
-							<div class="12u$ 12u$(xsmall)" style="text-align: left;">
-								<h3>Video</h3>
-								<iframe id="match-video" width="640" height="360" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/UPJjpIhXpZ8?rel=0" frameborder="0" allowfullscreen></iframe>
-							</div>
-						</div>
-
-						<hr/ style="margin-top: 1em">
-				        <h3>Acknowledgements</h3>
-				        <p>We would like to thank Google for the UR5 robot hardware. This work was supported in part by the Amazon Research Award, the Columbia School of Engineering, as well as the National Science Foundation under CMMI-2037101.</p>
-
-						<hr/ style="margin-top: 1em">
-				        <h3>Contact</h3>
-				        <p>If you have any questions, please feel free to contact <a href = "mailto: huy.ha@columbia.edu">Huy Ha</a></p>
-						<hr/>
-					</section>
+			<div class="row">
+				<div class="12u$ 12u$(xsmall)" style="text-align: left;">
+					<h3>Video</h3>
+					<iframe id="match-video" width="640" height="360"
+						style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;"
+						src="https://www.youtube.com/embed/UPJjpIhXpZ8?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="copyright">
-						<li>Meet <a href="https://en.wikipedia.org/wiki/Danbo_(character)">Danbo</a> the cardboard robot.</li>
-					</ul>
-				</div>
-			</footer>
+			<hr / style="margin-top: 1em">
+			<h3>Acknowledgements</h3>
+			<p>We would like to thank Google for the UR5 robot hardware. This work was supported in part by the Amazon
+				Research Award, the Columbia School of Engineering, as well as the National Science Foundation under
+				CMMI-2037101.</p>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-	</body>
+			<hr / style="margin-top: 1em">
+			<h3>Contact</h3>
+			<p>If you have any questions, please feel free to contact <a href="mailto: huy.ha@columbia.edu">Huy Ha</a>
+			</p>
+			<hr />
+		</section>
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="copyright">
+				<li>Meet <a href="https://en.wikipedia.org/wiki/Danbo_(character)">Danbo</a> the cardboard robot.</li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.poptrox.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+</body>
+
 </html>
