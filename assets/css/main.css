@@ -2252,10 +2252,10 @@
 	table {
 		margin: 0 0 2em 0;
 		width: 100%;
-		border: none;
+		border: 0px solid black;
 		border-collapse: collapse;
 		background-color: transparent;
-					text-align: center;
+		text-align: center;
 	}
 
 
@@ -2269,6 +2269,13 @@
 			padding: 4px 4px 4px 4px;
 			text-align: left;
 		}
+
+		table tbody tr {
+			border: solid 0px black;
+			border-left: 0;
+			border-right: 0;
+		}
+
 
 /* Button */
 
