@@ -80,6 +80,22 @@
 		width: 960px;
 	}
 
+	.gifresult {
+		display:flexbox;
+		justify-content: center;
+		align-items: center;
+		text-align:center;
+		flex-grow: 1;
+		width:100%;
+		margin:0px;
+		padding:0px;
+	}
+
+	.giflabel{
+		margin-top:-10px;
+		margin-bottom:0px
+	}
+
 	@media screen and (max-width: 1800px) {
 
 		.container.\31 25\25 {
